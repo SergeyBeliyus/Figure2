@@ -6,31 +6,22 @@
 class Figure {
 protected:
 	std::string name = "Фигура";
-	int a, b, c, d, A, B, C, D;
 public:
-	Figure() {
-		this->a = 0;
-		this->b = 0;
-		this->c = 0;
-		this->d = 0;
-		this->A = 0;
-		this->B = 0;
-		this->C = 0;
-		this->D = 0;
-	}
 
 	std::string get_name(){
 		return name;
 	}
 	virtual std::string get_sides() {
-		return ("Стороны: a=" + std::to_string(a) + " b=" + std::to_string(b) + " c=" + std::to_string(c) + " d=" + std::to_string(d));
+		return "Нет сторон";
 	}
 	virtual std::string get_angles() {
-		return ("Углы: A=" + std::to_string(A) + " B=" + std::to_string(B) + " C=" + std::to_string(C) + " D=" + std::to_string(D));
+		return "Нет углов";
 	}
 };
 
 class Triangle : public Figure{
+protected:
+	int a, b, c, A, B, C;
 public:
 	Triangle(int a, int b, int c, int A, int B, int C) : Figure() {
 		this->name = "Треугольник";
@@ -51,6 +42,8 @@ public:
 };
 
 class Quadrangle : public Figure {
+protected:
+	int a, b, c, d, A, B, C, D;
 public:
 	Quadrangle(int a, int b, int c, int d, int A, int B, int C, int D) : Figure() {
 		this->name = "Четырехугольник";
